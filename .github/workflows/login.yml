@@ -1,0 +1,15 @@
+name: Autologin
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  autologin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: esfalsa/autologin-action@main
+        with:
+          user_agent: haku
+          credentials: ${{ secrets.CREDENTIALS }}
